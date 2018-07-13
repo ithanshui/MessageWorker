@@ -9,9 +9,9 @@ namespace MessageWorker.Core.Publish
 {
     internal class PublishService<TMessage> : IPublishService<TMessage>
     {
-        PublishSettings<TMessage> _publishSettings;
-        ProducerSettings _producerSettings;
-        string _topicName;
+        internal PublishSettings<TMessage> _publishSettings;
+        internal ProducerSettings _producerSettings;
+        internal string _topicName;
 
         public PublishService(
             ProducerSettings producerSettings,
