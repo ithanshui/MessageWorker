@@ -78,5 +78,73 @@ namespace MessageWorker.Core.Test.Publish
             A.CallTo(() => moqProducer.Send("topicName", A<byte[]>.That.IsSameSequenceAs(new byte[] { 0x0, 0x1, 0x2 })))
             .MustHaveHappenedOnceExactly();
         }
+
+
+
+        [Fact]
+        public void PublishService_SendBatch_CallSerializer()
+        {
+            var moqProducerSettings = new ProducerSettings()
+            {
+                Producer = A.Fake<IProducer>()
+            };
+
+            var moqSerializer = A.Fake<ISerializer<string>>();
+            var moqPublishSettings = new PublishSettings<string>()
+            {
+                Serializer = moqSerializer
+            };
+            var moqOptionsSnapshot = A.Fake<IOptionsSnapshot<PublishSettings<string>>>();
+            A.CallTo(() => moqOptionsSnapshot.Get(A<string>._)).Returns(moqPublishSettings);
+
+            var publishSerivce =
+                new PublishService<string>(moqProducerSettings, moqOptionsSnapshot, "topicName");
+
+            publishSerivce.SendBatch("test msg", "test msg1", "test msg2");
+
+            A.CallTo(
+                () => moqSerializer.Serialize(A<string>.That.IsSameAs("test msg"))
+            ).MustHaveHappenedOnceExactly();
+            A.CallTo(
+                () => moqSerializer.Serialize(A<string>.That.IsSameAs("test msg1"))
+            ).MustHaveHappenedOnceExactly();
+            A.CallTo(
+                () => moqSerializer.Serialize(A<string>.That.IsSameAs("test msg2"))
+            ).MustHaveHappenedOnceExactly();
+        }
+
+        [Fact]
+        public void PublishService_SendBatch_CallProducer()
+        {
+            var moqProducer = A.Fake<IProducer>();
+            var moqProducerSettings = new ProducerSettings()
+            {
+                Producer = moqProducer
+            };
+
+            var moqSerializer = A.Fake<ISerializer<string>>();
+            A.CallTo(() => moqSerializer.Serialize(A<string>._))
+                .Returns(new byte[] { 0x0, 0x1, 0x2 });
+            var moqPublishSettings = new PublishSettings<string>()
+            {
+                Serializer = moqSerializer
+            };
+            var moqOptionsSnapshot = A.Fake<IOptionsSnapshot<PublishSettings<string>>>();
+            A.CallTo(() => moqOptionsSnapshot.Get(A<string>._)).Returns(moqPublishSettings);
+
+            var publishSerivce
+                = new PublishService<string>(moqProducerSettings, moqOptionsSnapshot, "topicName");
+
+            publishSerivce.SendBatch("test msg", "test msg1", "test msg2");
+
+            A.CallTo(
+                () => moqProducer.SendBatch(
+                    "topicName",
+                    A<byte[]>.That.IsSameSequenceAs(new byte[] { 0x0, 0x1, 0x2 }),
+                    A<byte[]>.That.IsSameSequenceAs(new byte[] { 0x0, 0x1, 0x2 }),
+                    A<byte[]>.That.IsSameSequenceAs(new byte[] { 0x0, 0x1, 0x2 })
+                    )
+                    ).MustHaveHappenedOnceExactly();
+        }
     }
 }
