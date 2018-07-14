@@ -6,4 +6,4 @@ dotnet: 2.1.3
 before_script:
   - dotnet restore
 script:
-  - dotnet test
+  - dotnet test -t

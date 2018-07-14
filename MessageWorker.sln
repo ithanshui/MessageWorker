@@ -26,12 +26,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaConsole", "examples\Ka
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{136025B1-C299-4266-8E18-96B4B7E2E47A}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.travis.yml = .travis.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4E15D0CF-7F1F-4A27-BD54-D0B84545FD21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageWorker.Core.Test", "test\MessageWorker.Core.Test\MessageWorker.Core.Test.csproj", "{F055847A-21E8-48A2-8825-1167105206D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageWorker.Core.Test", "test\MessageWorker.Core.Test\MessageWorker.Core.Test.csproj", "{F055847A-21E8-48A2-8825-1167105206D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

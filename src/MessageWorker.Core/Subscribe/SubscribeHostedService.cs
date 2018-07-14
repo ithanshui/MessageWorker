@@ -10,10 +10,10 @@ namespace MessageWorker.Core.Subscribe
 {
     internal class SubscribeHostedService<TMessage> : BackgroundService
     {
-        SubscribeSettings<TMessage> _subscribeSettings;
-        ConsummerSettings _consummerSettings;
+        internal SubscribeSettings<TMessage> _subscribeSettings;
+        internal ConsummerSettings _consummerSettings;
 
-        string _topicName;
+        internal string _topicName;
 
         internal SubscribeHostedService(
             ConsummerSettings consummerSettings,
