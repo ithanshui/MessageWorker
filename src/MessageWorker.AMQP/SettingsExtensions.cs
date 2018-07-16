@@ -10,7 +10,7 @@ namespace MessageWorker.AMQP
         {
             var settingsDict = new AMQPSettings();
             settignsAction(settingsDict);
-            settings.Consumer = new AMQPConsumer(settingsDict));
+            settings.Consumer = new AMQPConsumer(settingsDict);
         }
 
         public static void UseAMQPProducer(this ProducerSettings settings, Action<AMQPSettings> settignsAction)
