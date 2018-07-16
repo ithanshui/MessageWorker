@@ -26,10 +26,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaConsole", "examples\Ka
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{136025B1-C299-4266-8E18-96B4B7E2E47A}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.travis.yml = .travis.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMQPConsole", "AMQPConsole\AMQPConsole.csproj", "{9230F359-C56C-40A8-96DB-75A0F00FA78C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4E15D0CF-7F1F-4A27-BD54-D0B84545FD21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageWorker.Core.Test", "test\MessageWorker.Core.Test\MessageWorker.Core.Test.csproj", "{F055847A-21E8-48A2-8825-1167105206D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +155,18 @@ Global
 		{9230F359-C56C-40A8-96DB-75A0F00FA78C}.Release|x64.Build.0 = Release|Any CPU
 		{9230F359-C56C-40A8-96DB-75A0F00FA78C}.Release|x86.ActiveCfg = Release|Any CPU
 		{9230F359-C56C-40A8-96DB-75A0F00FA78C}.Release|x86.Build.0 = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|x64.Build.0 = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Debug|x86.Build.0 = Debug|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|x64.ActiveCfg = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|x64.Build.0 = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|x86.ActiveCfg = Release|Any CPU
+		{F055847A-21E8-48A2-8825-1167105206D1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +182,7 @@ Global
 		{5646C53C-C75A-4081-8958-CB4046E7F2C6} = {8C158E9B-E4C9-4FA7-BD09-EC15AD5C8C7E}
 		{C57CE6E7-43B6-43D5-8D61-261FADD1764A} = {8C158E9B-E4C9-4FA7-BD09-EC15AD5C8C7E}
 		{9230F359-C56C-40A8-96DB-75A0F00FA78C} = {8C158E9B-E4C9-4FA7-BD09-EC15AD5C8C7E}
+		{F055847A-21E8-48A2-8825-1167105206D1} = {4E15D0CF-7F1F-4A27-BD54-D0B84545FD21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB34F37F-BEB4-4D3D-95E5-BBC42EFFC796}

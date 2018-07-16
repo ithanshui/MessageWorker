@@ -1,4 +1,10 @@
 # MessageWorker
+
+| Branch	| Build status |
+| ------- | ------------ |
+| dev			| [![Build Status](https://travis-ci.org/mukmyash/MessageWorker.svg?branch=dev)](https://travis-ci.org/mukmyash/MessageWorker)|
+| master	| [![Build Status](https://travis-ci.org/mukmyash/MessageWorker.svg?branch=master)](https://travis-ci.org/mukmyash/MessageWorker) |
+
 Simple library for create consumer and producer by asynchronous communication.
 
 # Packages
