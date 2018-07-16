@@ -23,7 +23,7 @@ namespace KafkaConsole
                   {
                       services.AddProducer(options =>
                       {
-                          options.UserKafkaProducer(settings =>
+                          options.UseKafkaProducer(settings =>
                           {
                               settings.GroupId = "group_id";
                               settings.ClientId = "client-id";
@@ -45,7 +45,7 @@ namespace KafkaConsole
 
                       services.AddConsummer(options =>
                       {
-                          options.UserKafkaConsummer(settings =>
+                          options.UseKafkaConsummer(settings =>
                           {
                               settings.GroupId = "group_id";
                               settings.ClientId = "client-id";
