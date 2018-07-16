@@ -9,14 +9,14 @@ namespace MessageWorker.Kafka
 {
     public static class SettingsExtensions
     {
-        public static void UserKafkaConsummer(this ConsummerSettings settings, Action<KafkaSettings> settignsAction)
+        public static void UseKafkaConsummer(this ConsummerSettings settings, Action<KafkaSettings> settignsAction)
         {
             var settingsDict = new KafkaSettings();
             settignsAction(settingsDict);
             settings.Consumer = new KafkaConsumer(settingsDict.GetDictionaryConfig());
         }
 
-        public static void UserKafkaProducer(this ProducerSettings settings, Action<KafkaSettings> settignsAction)
+        public static void UseKafkaProducer(this ProducerSettings settings, Action<KafkaSettings> settignsAction)
         {
             var settingsDict = new KafkaSettings();
             settignsAction(settingsDict);

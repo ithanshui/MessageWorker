@@ -20,7 +20,7 @@ Simple library for create consumer and producer by asynchronous communication.
         ``` C#
         services.AddProducer(options =>
         {
-            options.UserKafkaProducer(settings =>
+            options.UseKafkaProducer(settings =>
             {
                 settings.GroupId = "group_id";
                 settings.ClientId = "client-id";
@@ -53,7 +53,7 @@ Simple library for create consumer and producer by asynchronous communication.
         ``` C#
         services.AddConsummer(options =>
         {
-            options.UserKafkaConsummer(settings =>
+            options.UseKafkaConsummer(settings =>
             {
                 settings.GroupId = "group_id";
                 settings.ClientId = "client-id";
@@ -79,15 +79,16 @@ Simple library for create consumer and producer by asynchronous communication.
         });
         ```
 1. Communication via AMQP
-		1. Producer
+    1. Producer
+        
         ``` C#
         services.AddProducer(options =>
         {
             options.UseAMQPProducer(settings =>
-						{
-								settings.LinkName = "producer-name";
-								settings.Address = new Uri("amqp://username:password@host:1111");
-						});
+            {
+                settings.LinkName = "producer-name";
+                settings.Address = new Uri("amqp://username:password@host:1111");
+            });
         })
         // Register MessageModel class for sent message in the topic topicName1  
         .Register<MessageModel>("topicName1", options =>
@@ -100,7 +101,7 @@ Simple library for create consumer and producer by asynchronous communication.
         {
             // Register JSON serializer
             options.UseJSONSerializer();
-        });;
+        });
         ```
     1. Consummer
 
@@ -108,9 +109,9 @@ Simple library for create consumer and producer by asynchronous communication.
         services.AddConsummer(options =>
         {
             options.UseAMQPConsummer(settings =>
-						{
-								settings.LinkName = "consummer-name";
-								settings.Address = new Uri("amqp://username:password@host:1111");
+            {
+                settings.LinkName = "consummer-name";
+                settings.Address = new Uri("amqp://username:password@host:1111");
             });
         })
         // Register MessageModel class for incoming message in the topic topicName1
